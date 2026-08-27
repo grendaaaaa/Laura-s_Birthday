@@ -573,9 +573,16 @@ button:focus, input:focus {
 .font-handwriting { font-family: var(--font-handwriting); }
 
 /* Scene-specific overrides */
-#scene-letter {
-    align-items: flex-start;
+#scene-memories {
+    align-items: center;
     justify-content: flex-start;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+#scene-letter {
+    align-items: center;
+    justify-content: center;
     padding-top: 40px;
     padding-bottom: 80px;
 }
@@ -1489,19 +1496,19 @@ button:focus, input:focus {
     opacity: 0;
 }
 
-/* When open: letter rises up from envelope */
+/* When open: letter rises up into center of screen */
 .envelope-container.open .letter-parchment {
-    position: absolute;
-    top: auto;
-    bottom: 5px;
+    position: fixed;
+    top: 50%;
     left: 50%;
-    width: min(520px, 88vw);
-    height: 480px;
-    transform: translate(-50%, -160px) !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(560px, 90vw);
+    max-height: 80vh;
+    height: 520px;
     z-index: 500;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.75), 0 0 60px rgba(255,71,126,0.12);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.85), 0 0 60px rgba(255,71,126,0.2);
     padding: 40px 44px;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow-y: auto;
     pointer-events: auto;
 }
@@ -1681,6 +1688,87 @@ button:focus, input:focus {
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+/* ==========================================================================
+   FINAL PHOTO STRIPS (LEFT & RIGHT SIDES)
+   ========================================================================== */
+.final-photo-strip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    max-height: 85vh;
+    overflow: hidden;
+}
+
+.final-photo-strip.strip-left {
+    left: 28px;
+    transform: translateY(-50%) translateX(-40px) rotate(-3deg);
+}
+
+.final-photo-strip.strip-right {
+    right: 28px;
+    transform: translateY(-50%) translateX(40px) rotate(3deg);
+}
+
+.final-photo-strip.visible {
+    opacity: 0.85;
+}
+
+.final-photo-strip.strip-left.visible {
+    transform: translateY(-50%) translateX(0) rotate(-3deg);
+}
+
+.final-photo-strip.strip-right.visible {
+    transform: translateY(-50%) translateX(0) rotate(3deg);
+}
+
+.final-strip-img {
+    width: 105px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.final-strip-img:nth-child(even) {
+    transform: rotate(4deg);
+}
+
+.final-strip-img:nth-child(odd) {
+    transform: rotate(-4deg);
+}
+
+@media (max-width: 1100px) {
+    .final-strip-img {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+    .final-photo-strip.strip-left { left: 10px; }
+    .final-photo-strip.strip-right { right: 10px; }
+}
+
+@media (max-width: 768px) {
+    .final-photo-strip {
+        opacity: 0.35;
+    }
+    .final-strip-img {
+        width: 55px;
+        height: 55px;
+        border-width: 2px;
+    }
+    .final-photo-strip.strip-left { left: 4px; }
+    .final-photo-strip.strip-right { right: 4px; }
 }
 
 /* ==========================================================================
