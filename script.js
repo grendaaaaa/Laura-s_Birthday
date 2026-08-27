@@ -11,7 +11,7 @@ const CONFIG = {
 
     // Target birthday date-time (ISO format)
     // Timezone offset for Asia/Jakarta (WIB) is UTC+7 (+07:00)
-    birthdayDate: "2026-08-27T00:00:00+07:00",
+    birthdayDate: "2026-08-28T00:00:00+07:00",
 
     // Music Configuration
     music: {
@@ -21,24 +21,69 @@ const CONFIG = {
     },
 
     // Scene 4 message (typewriter)
-    birthdayMessage: `Selamat ulang tahun, sayang. ❤️
+    birthdayMessage: `Happy birthday, Laura! ❤️
 
-Terima kasih ya sudah selalu ada dan menghiasi hari-hariku dengan senyumanmu. 
+Akhirnya 21 tahun juga kamu. 🥹🎂
 
-Semoga di usiamu yang baru ini, setiap langkahmu dipenuhi keberkahan, impianmu tercapai satu per satu, dan kebahagiaan selalu memelukmu erat.
+Makasih ya, udah hadir di hidupku dan jadi salah satu orang yang bikin hari-hariku jauh lebih seru.
 
-I'm so lucky to have you. I love you, always. ✨`,
+Makasih buat semua cerita, tawa, perhatian, dan hal-hal kecil yang mungkin kelihatannya sederhana, tapi selalu berarti buat aku.
+
+Di umur kamu yang ke-21 ini, aku cuma mau kamu selalu bahagia.
+
+Semoga apa pun yang lagi kamu kejar bisa pelan-pelan tercapai.
+Semoga banyak hal baik datang ke kamu.
+Dan semoga kamu selalu punya alasan buat tersenyum.
+
+Kalau nanti ada hari yang berat, jangan terlalu keras sama diri sendiri ya.
+
+Istirahat kalau capek.
+Cerita kalau lagi penuh.
+Dan jangan lupa... kamu nggak sendirian. ❤️
+
+I'm so lucky to have you.
+
+Happy 21st birthday, sayang. ✨`,
 
     // Scene 6 Love Letter
     loveLetter: `Dear Laura,
 
-Tepat hari ini, dunia kedatangan satu jiwa yang luar biasa—kamu. Aku menulis surat ini hanya untuk mengingatkanmu betapa berharganya dirimu bagi orang-orang di sekitarmu, terutama aku.
+Happy 21st birthday, sayang. ❤️
 
-Melihat tawa kecilmu, mendengar ceritamu, dan melewati hari demi hari bersamamu adalah bagian favorit dalam hidupku. Terima kasih untuk kebaikan hatimu yang tak pernah habis, kesabaranmu, dan kasih sayang yang kamu berikan.
+Hari ini kamu resmi 21 tahun.
 
-Semoga semua hal baik selalu menemukan jalan menuju dirimu. Di saat hari terasa berat, ingatlah bahwa aku akan selalu di sini untuk menemanimu dan mendukungmu.
+Aku cuma mau bilang kalau aku senang banget bisa kenal kamu dan punya banyak cerita bareng kamu.
 
-Happy Birthday, my love. 
+Makasih karena udah jadi bagian dari hari-hariku.
+
+Makasih buat semua cerita, semua tawa, semua perhatian, dan bahkan hal-hal kecil yang mungkin nggak pernah kamu sadari ternyata berarti banget buat aku.
+
+Aku suka kamu yang apa adanya.
+
+Cara kamu ketawa.
+Cara kamu cerita.
+Tingkah random kamu.
+Sampai hal-hal kecil tentang kamu yang kadang bikin aku senyum sendiri.
+
+Di umur 21 ini, aku harap kamu nggak terlalu sibuk mengejar semuanya sampai lupa menikmati prosesnya.
+
+Nggak apa-apa kalau capek.
+Nggak apa-apa kalau belum tahu harus ke mana.
+Nggak apa-apa kalau sesuatu belum berjalan sesuai rencana.
+
+Pelan-pelan aja.
+
+Semoga tahun ini banyak hal baik datang ke kamu.
+
+Semoga apa yang kamu mau bisa tercapai satu per satu.
+
+Dan semoga nanti kita punya lebih banyak cerita yang bisa kita ingat bareng.
+
+Kalau suatu hari semuanya terasa berat, jangan lupa kalau ada aku yang siap dengerin cerita kamu.
+
+Tetap jadi Laura yang aku kenal ya. ❤️
+
+Happy 21st birthday, my favorite person.
 
 Love,
 Me ❤️`
@@ -536,7 +581,7 @@ function deletePinDigit() {
 function clearPin() {
     STATE.pinDigits = [];
     updatePinDisplay();
-    DOM.pinFeedback.textContent = "Enter the secret date/PIN to unlock ♡";
+    DOM.pinFeedback.textContent = "Masukin kode rahasianya dulu ya 👀❤️";
     DOM.pinFeedback.classList.remove('error');
 }
 
@@ -556,7 +601,7 @@ function validatePin() {
     
     if (enteredPin === CONFIG.secretPin) {
         // Success feedback
-        DOM.pinFeedback.textContent = "Correct! Opening your surprise...";
+        DOM.pinFeedback.textContent = "Yey, bener! Sebentar... surprisenya dibuka ❤️";
         DOM.pinFeedback.classList.remove('error');
         
         // Trigger subtle confetti burst
@@ -575,7 +620,7 @@ function validatePin() {
     } else {
         // Error feedback
         DOM.pinCard.classList.add('shake');
-        DOM.pinFeedback.textContent = "Hmm... not quite 😝 Try again, sayang.";
+        DOM.pinFeedback.textContent = "Hehe, belum bener 😝 Coba lagi, sayang.";
         DOM.pinFeedback.classList.add('error');
         
         // Reset code display
@@ -633,7 +678,7 @@ function triggerMidnightEvent() {
     DOM.cdMinutes.textContent = "00";
     DOM.cdSeconds.textContent = "00";
 
-    DOM.countdownStatus.textContent = "✨ Hari ini adalah harinya!";
+    DOM.countdownStatus.textContent = "✨ Yey! Hari ini ulang tahun kamu! ✨";
     
     if (typeof confetti !== 'undefined') {
         confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
@@ -697,7 +742,7 @@ DOM.btnEnableMic.addEventListener('click', setupMicrophone);
 
 function setupMicrophone() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        DOM.btnEnableMic.textContent = "Listening...";
+        DOM.btnEnableMic.textContent = "Aku dengerin... 🎤";
         DOM.btnEnableMic.classList.add('recording');
         
         navigator.mediaDevices.getUserMedia({ audio: true, video: false })
@@ -712,12 +757,12 @@ function setupMicrophone() {
                 detectBlowing();
             })
             .catch(err => {
-                showToast("Microphone denied. Click candle to blow! 🎂");
+                showToast("Mic-nya nggak bisa dipakai 😭 Klik lilinnya aja ya! 🎂");
                 DOM.btnEnableMic.textContent = "Permission Denied";
                 DOM.btnEnableMic.classList.remove('recording');
             });
     } else {
-        showToast("Microphone not supported on this browser.");
+        showToast("Mic-nya nggak tersedia di browser ini 😭 Klik lilinnya aja!");
     }
 }
 
@@ -761,7 +806,7 @@ function blowCandle() {
     DOM.smoke1.classList.add('extinguished');
     DOM.smoke2.classList.add('extinguished');
 
-    DOM.blowInstruction.textContent = "Blow successful! ✨";
+    DOM.blowInstruction.textContent = "Yey, berhasil! 🎂✨";
 
     // Play visual feedback
     setTimeout(() => {
@@ -816,7 +861,7 @@ function initGallery() {
 
         card.innerHTML = `
             <div class="polaroid-img-wrapper">
-                <img src="${photo.src}" alt="Memory ${index + 1}" class="polaroid-img">
+                <img src="${photo.src}" alt="Kenangan kita ${index + 1}" class="polaroid-img">
             </div>
         `;
 
@@ -909,7 +954,7 @@ function showNextLightbox() {
 
 function updateLightboxContent() {
     const photo = PHOTOS[STATE.activeLightboxIndex];
-    DOM.lightboxImgWrapper.innerHTML = `<img src="${photo.src}" alt="Memory ${STATE.activeLightboxIndex + 1}">`;
+    DOM.lightboxImgWrapper.innerHTML = `<img src="${photo.src}" alt="Kenangan kita ${STATE.activeLightboxIndex + 1}">`;
     DOM.lightboxCaption.textContent = '';
 
     // Placeholder inside lightbox if file missing
@@ -1143,7 +1188,7 @@ DOM.btnReplaySurprise.addEventListener('click', () => {
     DOM.cakeGlow.style.opacity = '0.7';
     DOM.smoke1.classList.remove('extinguished');
     DOM.smoke2.classList.remove('extinguished');
-    DOM.blowInstruction.textContent = "Blow the candle, or click/tap it!";
+    DOM.blowInstruction.textContent = "Buat satu wish dulu... 🎂✨<br>Terus tiup lilinnya!";
     DOM.wishSuccessMsg.classList.remove('visible');
     DOM.btnCakeNext.classList.add('d-none');
     
@@ -1192,10 +1237,10 @@ function initAudioPlayer() {
             DOM.trackArtist.textContent = 'Background Music';
             audio.load();
             audio.play().catch(() => {
-                showToast('Letakkan lagu di: assets/music/our-song.mp3 ♫');
+                showToast("Kayaknya lagunya belum masuk 😭 Cek assets/music/our-song.mp3 ya.");
             });
         } else {
-            showToast('Letakkan lagu di: assets/music/our-song.mp3 ♫');
+            showToast("Kayaknya lagunya belum masuk 😭 Cek assets/music/our-song.mp3 ya.");
         }
     });
 }
@@ -1275,7 +1320,7 @@ function initEasterEggs() {
             heartEgg.style.display = 'none';
             STATE.heartsFound++;
             
-            showToast(`You found a little piece of my heart. ❤️ (${STATE.heartsFound}/3)`);
+            showToast(`Kamu nemu satu bagian kecil dari hatiku. ❤️ (${STATE.heartsFound}/3)`);
         });
 
         document.body.appendChild(heartEgg);
