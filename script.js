@@ -7,7 +7,7 @@ const CONFIG = {
     girlfriendName: "Laura Aughrista Putri",
 
     // PIN code to unlock the website
-    secretPin: "056493", // e.g. Her birthday date (DDMMYY)
+    secretPin: "0000",
 
     // Target birthday date-time (ISO format)
     // Timezone offset for Asia/Jakarta (WIB) is UTC+7 (+07:00)
@@ -568,7 +568,7 @@ function initPinPad() {
 }
 
 function appendPinDigit(digit) {
-    if (STATE.pinDigits.length >= 6) return;
+    if (STATE.pinDigits.length >= CONFIG.secretPin.length) return;
     STATE.pinDigits.push(digit);
     updatePinDisplay();
 }
