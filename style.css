@@ -2123,3 +2123,142 @@ button:focus, input:focus {
         display: none !important;
     }
 }
+
+/* ==========================================================================
+   MOBILE RESPONSIVE ENHANCEMENTS
+   ========================================================================== */
+@media (max-width: 600px) {
+    .scene {
+        padding: 16px 12px 90px;
+    }
+
+    .glass-card {
+        padding: 24px 18px;
+        width: 95%;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .scene-heading {
+        font-size: 1.9rem;
+    }
+
+    .key-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 1.1rem;
+    }
+
+    .pin-keyboard {
+        gap: 10px;
+        max-width: 210px;
+    }
+
+    .interactive-cake-wrapper {
+        width: 240px;
+        height: 240px;
+    }
+
+    .svg-cake {
+        width: 240px;
+        height: 240px;
+    }
+
+    .time-block {
+        min-width: 62px;
+        padding: 10px 8px;
+    }
+
+    .time-num {
+        font-size: 1.8rem;
+    }
+
+    .time-colon {
+        font-size: 1.8rem;
+    }
+
+    .countdown-timer {
+        gap: 8px;
+    }
+
+    .message-card {
+        padding: 24px 20px;
+        min-height: auto;
+    }
+
+    .typewriter-text {
+        font-size: 0.98rem;
+    }
+
+    .envelope-container {
+        width: 260px;
+        height: 165px;
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    .envelope-front {
+        border-right-width: 120px;
+        border-bottom-width: 80px;
+        border-left-width: 120px;
+        border-top-width: 85px;
+    }
+
+    .envelope-top-flap {
+        border-left-width: 120px;
+        border-right-width: 120px;
+        border-top-width: 90px;
+    }
+
+    .envelope-seal {
+        left: 105px;
+        top: 65px;
+    }
+
+    .envelope-container.open .letter-parchment {
+        width: 92vw;
+        height: 72vh;
+        padding: 24px 20px;
+    }
+
+    .envelope-container.open .letter-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .final-title {
+        font-size: 1.8rem;
+    }
+
+    .final-fade-line {
+        font-size: 1.05rem;
+    }
+
+    .final-fade-line:nth-child(n+2) {
+        font-size: 1.15rem;
+    }
+
+    .final-climax-heart svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .final-love-txt {
+        font-size: 1.5rem;
+    }
+
+    .final-photo-strip {
+        opacity: 0.25;
+    }
+
+    .final-strip-img {
+        width: 48px;
+        height: 48px;
+        border-width: 2px;
+    }
+
+    .final-photo-strip.strip-left { left: 2px; }
+    .final-photo-strip.strip-right { right: 2px; }
+}

@@ -4,7 +4,7 @@
 
 const CONFIG = {
     // Girlfriend's name
-    girlfriendName: "Laura Augrista Putri",
+    girlfriendName: "Laura Aughrista Putri",
 
     // PIN code to unlock the website
     secretPin: "056493", // e.g. Her birthday date (DDMMYY)
@@ -86,7 +86,7 @@ Tetap jadi Laura yang aku kenal ya. ❤️
 Happy 21st birthday, my favorite person.
 
 Love,
-Me ❤️`
+Grenda ❤️`
 };
 
 /* ==========================================
@@ -156,6 +156,7 @@ const DOM = {
     smoke2: document.getElementById('smoke-trail-2'),
     cakeGlow: document.getElementById('cake-glow'),
     btnEnableMic: document.getElementById('btn-enable-mic'),
+    btnBlowButton: document.getElementById('btn-blow-button'),
     wishSuccessMsg: document.getElementById('wish-success-msg'),
     btnCakeNext: document.getElementById('btn-cake-next'),
     blowInstruction: document.getElementById('blow-instruction'),
@@ -740,6 +741,11 @@ document.getElementById('candle-group').addEventListener('click', blowCandle);
 // Enable mic button
 DOM.btnEnableMic.addEventListener('click', setupMicrophone);
 
+// Manual blow button click handler
+if (DOM.btnBlowButton) {
+    DOM.btnBlowButton.addEventListener('click', blowCandle);
+}
+
 function setupMicrophone() {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         DOM.btnEnableMic.textContent = "Aku dengerin... 🎤";
@@ -807,6 +813,9 @@ function blowCandle() {
     DOM.smoke2.classList.add('extinguished');
 
     DOM.blowInstruction.textContent = "Yey, berhasil! 🎂✨";
+
+    // Hide blow action buttons
+    if (DOM.btnEnableMic) DOM.btnEnableMic.parentElement.style.display = 'none';
 
     // Play visual feedback
     setTimeout(() => {
@@ -1189,6 +1198,7 @@ DOM.btnReplaySurprise.addEventListener('click', () => {
     DOM.smoke1.classList.remove('extinguished');
     DOM.smoke2.classList.remove('extinguished');
     DOM.blowInstruction.textContent = "Buat satu wish dulu... 🎂✨<br>Terus tiup lilinnya!";
+    if (DOM.btnEnableMic) DOM.btnEnableMic.parentElement.style.display = 'flex';
     DOM.wishSuccessMsg.classList.remove('visible');
     DOM.btnCakeNext.classList.add('d-none');
     
